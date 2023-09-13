@@ -1,4 +1,3 @@
-import os 
 import numpy as np 
 import pandas as pd 
 import seaborn as sns 
@@ -14,9 +13,9 @@ from sklearn.metrics import euclidean_distances
 from scipy.spatial.distance import cdist
 
 #reading the data 
-data = pd.read_csv("/Users/anmol/dev/Projects/Rekkom3nd/data.csv")
-genre_data = pd.read_csv("/Users/anmol/dev/Projects/Rekkom3nd/data_by_genres.csv")
-year_data = pd.read_csv("/Users/anmol/dev/Projects/Rekkom3nd/data_by_year.csv")
+data = pd.read_csv("/Users/anmol/Developer/Projects/Rekkom3nd/data.csv")
+genre_data = pd.read_csv("/Users/anmol/Developer/Projects/Rekkom3nd/data_by_genres.csv")
+year_data = pd.read_csv("/Users/anmol/Developer/Projects/Rekkom3nd/data_by_year.csv")
 
 print(data.head)
 
@@ -41,13 +40,13 @@ visualizer.fit(X,y) #fit the variables to the visualizer
 sound_feautures = ['acousticness', 'danceability', 'energy', 'instrumentalness',
        'liveness', 'loudness', 'speechiness', 'tempo', 'valence']
 fig = px.line(year_data, x='year', y=sound_feautures)
-#fig.show()
+fig.show()
 
 #showing characterisitics according to genre
 top_genres = genre_data.nlargest(10 , 'popularity')
 
 fig = px.bar(top_genres, x='genres', y=['valence', 'energy', 'danceability', 'acousticness'], barmode='group')
-#fig.show()
+fig.show()
 
 #using KMeans clustering 
 
@@ -65,7 +64,7 @@ projection['genres'] = genre_data['genres']
 projection['cluster'] = genre_data['cluster']
 
 fig = px.scatter(projection, x='x', y='y', color='cluster',)
-#fig.show()
+fig.show()
 
 
 #clustering songs using K-Means
