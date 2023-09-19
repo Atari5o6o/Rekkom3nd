@@ -13,9 +13,9 @@ from sklearn.metrics import euclidean_distances
 from scipy.spatial.distance import cdist
 
 #reading the data 
-data = pd.read_csv("/Users/anmol/Developer/Projects/Rekkom3nd/data.csv")
-genre_data = pd.read_csv("/Users/anmol/Developer/Projects/Rekkom3nd/data_by_genres.csv")
-year_data = pd.read_csv("/Users/anmol/Developer/Projects/Rekkom3nd/data_by_year.csv")
+data = pd.read_csv("data.csv")
+genre_data = pd.read_csv("data_by_genres.csv")
+year_data = pd.read_csv("data_by_year.csv")
 
 print(data.head)
 
@@ -33,7 +33,7 @@ visualizer = FeatureCorrelation(label=features)
 
 plt.rcParams['figure.figsize']=(20,20)
 visualizer.fit(X,y) #fit the variables to the visualizer
-#visualizer.show()
+visualizer.show()
 
 
 #next, we can visualize how these variables have changed over time 
